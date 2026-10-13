@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devops-tomcat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devops-tomcat
+  template:
+    metadata:
+      labels:
+        app: devops-tomcat
+    spec:
+      containers:
+        - name: tomcat
+          image: deyaaalnjjar/devops-tomcat:1.0
+          ports:
+            - containerPort: 8080
